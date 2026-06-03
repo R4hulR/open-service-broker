@@ -1,31 +1,34 @@
-open-service-broker/
-│
-├── app/
-│   ├── api/
-│   │   └── v2/
-│   │       ├── catalog.py          # GET /v2/catalog
-│   │       ├── instances.py        # Provision / Deprovision
-│   │       └── bindings.py         # Bind / Unbind
-│   │
-│   ├── models/
-│   │   ├── catalog.py              # Pydantic models for catalog
-│   │   ├── instances.py            # Pydantic models for instances
-│   │   └── bindings.py             # Pydantic models for bindings
-│   │
-│   ├── services/
-│   │   └── docker_service.py       # All Docker SDK calls live here
-│   │
-│   ├── db/
-│   │   └── database.py             # Stores instance + binding state
-│   │
-│   └── main.py                     # FastAPI app entry point
-│
-├── tests/
-│   ├── test_catalog.py
-│   ├── test_instances.py
-│   └── test_bindings.py
-│
-├── docker-compose.yml              # Runs broker + its database together
-├── Dockerfile                      # Packages your broker
-├── requirements.txt
-└── README.md
+# Open Service Broker
+
+A spec-compliant Open Service Broker API built with FastAPI and Docker.
+
+> 🚧 Work in progress 
+
+## Tech Stack
+- **FastAPI** — broker API
+- **Docker** — provisioning backing services
+- **Kubernetes** — platform integration (coming soon)
+
+## Project Structure
+- `app/api/v2/` — OSB endpoints (catalog, instances, bindings)
+- `app/models/` — Pydantic models
+- `app/services/` — Docker SDK calls
+- `app/db/` — instance and binding persistence
+
+## Run Locally
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install "fastapi[standard]"
+uvicorn app.main:app --reload
+```
+
+## Endpoints
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | `/v2/catalog` | List available services and plans |
+| PUT | `/v2/service_instances/:id` | Provision a service (coming soon) |
+| PUT | `/v2/service_instances/:id/service_bindings/:id` | Bind a service (coming soon) |
+
+## Blog
+Full writeup coming on Medium after completion.
