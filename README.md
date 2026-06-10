@@ -36,7 +36,7 @@ uvicorn app.main:app --reload
 |--------|-------|-------------|--------|
 | GET | `/v2/catalog` | List available services and plans | ✅ |
 | PUT | `/v2/service_instances/:id` | Provision a service instance | ✅ |
-| PUT | `/v2/service_instances/:id/service_bindings/:id` | Bind a service | 🚧 |
+| PUT | `/v2/service_instances/:id/service_bindings/:id` | Bind a service | ✅ |
 | DELETE | `/v2/service_instances/:id` | Deprovision a service | 🚧 |
 | DELETE | `/v2/service_instances/:id/service_bindings/:id` | Unbind a service | 🚧 |
 
