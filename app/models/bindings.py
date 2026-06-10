@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
-class Instance(BaseModel):
-    service_id: str
+class Binding(BaseModel):
+    service_id : str
     plan_id: str
