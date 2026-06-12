@@ -15,3 +15,11 @@ def provision_container(instance_id:str):
     #Docker assigns the port dynamically, so we need to reload the container info to find out which port it got. We'll need this port later when the platform calls /bind to get credentials
     return (container_id,port)
 
+def deprovision_container(container_id:str):
+    try:
+        container = client.containers.get(container_id)
+        container.stop()
+        container.remove()
+        return True
+    except Exception as e:
+        return False 

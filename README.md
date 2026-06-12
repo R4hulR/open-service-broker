@@ -1,8 +1,8 @@
 # Open Service Broker
 
-A spec-compliant Open Service Broker API built with FastAPI and Docker.
+A spec-compliant Open Service Broker API built with FastAPI, Docker, and PostgreSQL.
 
-> 🚧 Work in progress
+> Work in progress
 
 ## Tech Stack
 - **FastAPI** — broker API
@@ -34,11 +34,15 @@ uvicorn app.main:app --reload
 ## Endpoints
 | Method | Route | Description | Status |
 |--------|-------|-------------|--------|
-| GET | `/v2/catalog` | List available services and plans | ✅ |
-| PUT | `/v2/service_instances/:id` | Provision a service instance | ✅ |
-| PUT | `/v2/service_instances/:id/service_bindings/:id` | Bind a service | ✅ |
-| DELETE | `/v2/service_instances/:id` | Deprovision a service | 🚧 |
-| DELETE | `/v2/service_instances/:id/service_bindings/:id` | Unbind a service | 🚧 |
+| GET | `/v2/catalog` | List available services and plans | Done |
+| PUT | `/v2/service_instances/:id` | Provision a service instance | Done |
+| PUT | `/v2/service_instances/:id/service_bindings/:id` | Bind a service | Done |
+| DELETE | `/v2/service_instances/:id/service_bindings/:id` | Unbind a service | Done |
+| DELETE | `/v2/service_instances/:id` | Deprovision a service | Done |
 
 ## Blog
-Full writeup coming on Medium after completion.
+Full writeup on Medium: coming soon
+
+## What's Next
+- Containerize the broker with Docker
+- Deploy and integrate with Kubernetes

@@ -1,4 +1,4 @@
-from fastapi import APIRouter,HTTPException
+from fastapi import APIRouter,HTTPException,Response
 from app.db.database import SessionDep,ServiceInstance
 from app.models.bindings import Binding
 router = APIRouter(
@@ -19,3 +19,10 @@ def bindService(instance_id:str,binding_id:str,binding:Binding,session:SessionDe
             "port":instance.port
         }
     }
+
+@router.delete("/{instance_id}/service_bindings/{binding_id}")
+def unbindService(instance_id:str,binding_id:str,session:SessionDep):
+    instance = session.get(ServiceInstance,instance_id)
+    if not instance:
+        raise HTTPException(status_code=404,detail=f'The instance: {instance_id} doesnt exist')
+    return Response(status_code=200)
