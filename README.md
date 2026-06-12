@@ -41,7 +41,7 @@ uvicorn app.main:app --reload
 | DELETE | `/v2/service_instances/:id` | Deprovision a service | Done |
 
 ## Blog
-Full writeup on Medium: coming soon
+Full writeup on Medium: https://medium.com/@R4hulRay/what-is-an-open-service-broker-and-how-do-you-build-one-b60ea0d2ae2a
 
 ## What's Next
 - Containerize the broker with Docker
